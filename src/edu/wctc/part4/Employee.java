@@ -49,6 +49,8 @@ public class Employee {
     private boolean movedIn;
     private String cubeId;
     private LocalDate orientationDate;
+
+    private Company company;
     private EmployeeReportService reportService = new EmployeeReportService();
 
     /*
@@ -203,5 +205,16 @@ public class Employee {
 
     public void printReport() {
         reportService.outputReport();
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        if(company == null)
+            throw new IllegalArgumentException("Company may not be null");
+
+        this.company = company;
     }
 }
